@@ -1,0 +1,31 @@
+﻿<Window x:Class="DatacontextProject.View.SkillsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatacontextProject.View"
+        mc:Ignorable="d"
+        Title="SkillsPage" Height="300" Width="300"
+        DataContext="{Binding skillsView, Source={StaticResource Locator}}">
+    <Border Margin="5">
+        <StackPanel>
+            
+            <!--Mogelijkheid om te binden #1
+            <Slider Name="Slider" Maximum="255" TickFrequency="5"></Slider>
+            <TextBox Text="{Binding ElementName=Slider, Path=Value, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
+
+            <!--Mogelijkheid om te binden #2-->
+            <Slider Maximum="200" Value="{Binding skill, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding skill, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding skill, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding skill, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!--Voorbeeld gebruik commandparameter-->
+            <!--*Doorgeven van huidige ViewModel naar button command -->
+            <!--*Hoe closed hij de window?-->
+            <Button Command="{Binding sendNudes}" CommandParameter="{Binding ElementName=CommandParameterTextBox, Path=Text}" >Klik mij voor een voorbeeld van commandParamater</Button>
+            <TextBox x:Name="CommandParameterTextBox"/>
+
+        </StackPanel>
+    </Border>
+</Window>
